@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingz Weed</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="plant-info" class="container">
+        <div class="header">
+            <h1 id="plant-name">Cannabis Plant</h1>
+            <span class="close-btn" id="close-plant-info">×</span>
+        </div>
+        <div class="content">
+            <div class="info-row">
+                <div class="info-item">
+                    <i class="fas fa-seedling"></i>
+                    <span>Stage: <span id="plant-stage">1/6</span></span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Time Left: <span id="plant-time">5 minutes</span></span>
+                </div>
+            </div>
+            
+            <div class="progress-section">
+                <div class="progress-item">
+                    <label>Water</label>
+                    <div class="progress-bar">
+                        <div id="water-progress" class="progress water"></div>
+                    </div>
+                    <span id="water-value">50%</span>
+                </div>
+                
+                <div class="progress-item">
+                    <label>Fertilizer</label>
+                    <div class="progress-bar">
+                        <div id="fertilizer-progress" class="progress fertilizer"></div>
+                    </div>
+                    <span id="fertilizer-value">30%</span>
+                </div>
+                
+                <div class="progress-item">
+                    <label>Health</label>
+                    <div class="progress-bar">
+                        <div id="health-progress" class="progress health"></div>
+                    </div>
+                    <span id="health-value">100%</span>
+                </div>
+                
+                <div class="progress-item">
+                    <label>Quality</label>
+                    <div class="progress-bar">
+                        <div id="quality-progress" class="progress quality"></div>
+                    </div>
+                    <span id="quality-value">Standard (50%)</span>
+                </div>
+            </div>
+            
+            <div class="status-section">
+                <div class="status-item" id="bugs-status">
+                    <i class="fas fa-bug"></i>
+                    <span>Bugs: None</span>
+                </div>
+                <div class="status-item" id="disease-status">
+                    <i class="fas fa-virus"></i>
+                    <span>Disease: None</span>
+                </div>
+                <div class="status-item" id="lamp-status">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Heat Lamp: Off</span>
+                </div>
+                <div class="status-item" id="hydro-status">
+                    <i class="fas fa-water"></i>
+                    <span>Hydroponic: No</span>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <div class="content-item">
+                    <label>THC Content</label>
+                    <span id="thc-value">5%</span>
+                </div>
+                <div class="content-item">
+                    <label>CBD Content</label>
+                    <span id="cbd-value">2%</span>
+                </div>
+            </div>
+            
+            <div class="actions-section">
+                <button class="action-btn water-btn" id="water-plant">
+                    <i class="fas fa-tint"></i>
+                    Water
+                </button>
+                <button class="action-btn fertilize-btn" id="fertilize-plant">
+                    <i class="fas fa-seedling"></i>
+                    Fertilize
+                </button>
+                <button class="action-btn pesticide-btn" id="pesticide-plant">
+                    <i class="fas fa-bug"></i>
+                    Pesticide
+                </button>
+                <button class="action-btn medicine-btn" id="medicine-plant">
+                    <i class="fas fa-pills"></i>
+                    Medicine
+                </button>
+                <button class="action-btn harvest-btn" id="harvest-plant">
+                    <i class="fas fa-cut"></i>
+                    Harvest
+                </button>
+                <button class="action-btn destroy-btn" id="destroy-plant">
+                    <i class="fas fa-trash"></i>
+                    Destroy
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="harvesting" class="container">
+        <div class="header">
+            <h1>Harvesting Plant</h1>
+            <span class="close-btn" id="cancel-harvest">×</span>
+        </div>
+        <div class="content">
+            <div class="harvest-progress">
+                <div class="progress-bar">
+                    <div id="harvest-progress-bar" class="progress harvest"></div>
+                </div>
+                <span id="harvest-progress-value">0%</span>
+            </div>
+            
+            <div class="harvest-instructions">
+                <p>Click the leaves to harvest them</p>
+            </div>
+            
+            <div class="harvest-leaves" id="harvest-leaves">
+                <!-- Leaves will be added dynamically -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

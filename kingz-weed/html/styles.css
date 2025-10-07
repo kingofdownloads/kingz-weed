@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: transparent;
+}
+
+.container {
+    width: 500px;
+    background-color: rgba(15, 15, 15, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.header {
+    background-color: rgba(39, 174, 96, 0.9);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.close-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.content {
+    padding: 20px;
+    color: white;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-item i {
+    color: #27ae60;
+}
+
+.progress-section {
+    margin-bottom: 20px;
+}
+
+.progress-item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.progress-item label {
+    width: 80px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.water {
+    background-color: #3498db;
+}
+
+.fertilizer {
+    background-color: #27ae60;
+}
+
+.health {
+    background-color: #e74c3c;
+}
+
+.quality {
+    background-color: #f39c12;
+}
+
+.harvest {
+    background-color: #9b59b6;
+}
+
+.status-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.content-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.content-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.05);
+    width: 48%;
+}
+
+.actions-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+}
+
+.water-btn {
+    background-color: #3498db;
+}
+
+.fertilize-btn {
+    background-color: #27ae60;
+}
+
+.pesticide-btn {
+    background-color: #e67e22;
+}
+
+.medicine-btn {
+    background-color: #9b59b6;
+}
+
+.harvest-btn {
+    background-color: #f1c40f;
+}
+
+.destroy-btn {
+    background-color: #e74c3c;
+}
+
+.harvest-progress {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.harvest-instructions {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.harvest-leaves {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.leaf {
+    width: 80px;
+    height: 80px;
+    background-color: #27ae60;
+    border-radius: 50% 0 50% 0;
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaf:hover {
+    background-color: #2ecc71;
+    transform: rotate(45deg) scale(1.1);
+}
+
+.leaf.harvested {
+    background-color: rgba(39, 174, 96, 0.3);
+    cursor: default;
+}
