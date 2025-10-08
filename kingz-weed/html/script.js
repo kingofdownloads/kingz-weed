@@ -4,6 +4,13 @@ let totalLeaves = 0;
 let harvestedLeaves = 0;
 
 $(document).ready(function() {
+    console.log("Harvest UI initialized");
+    
+    // Test click handling on document
+    $(document).on('click', function() {
+        console.log("Document clicked");
+    });
+    
     // Hide containers initially
     $("#plant-info").hide();
     $("#harvesting").hide();
@@ -26,7 +33,7 @@ $(document).ready(function() {
             plantId: currentPlantId,
             action: "water"
         }));
-        $("#plant-info").fadeOut();
+                $("#plant-info").fadeOut();
     });
     
     $("#fertilize-plant").click(function() {
@@ -127,6 +134,7 @@ function showPlantInfo(plantInfo) {
 }
 
 function startHarvesting(plantInfo) {
+    console.log("Starting harvest for plant:", plantInfo.id);
     currentPlantId = plantInfo.id;
     harvestProgress = 0;
     totalLeaves = plantInfo.leaves;
@@ -138,21 +146,36 @@ function startHarvesting(plantInfo) {
     
     // Create leaves
     $("#harvest-leaves").empty();
+    console.log("Creating", totalLeaves, "leaves");
+    
     for (let i = 0; i < totalLeaves; i++) {
         const leaf = $("<div>").addClass("leaf").attr("data-index", i);
-        leaf.click(function() {
+        // Make sure the leaf is clickable with proper z-index and position
+        leaf.css({
+            'position': 'relative',
+            'z-index': '100',
+            'cursor': 'pointer'
+        });
+        
+        // Add click event with debugging
+        leaf.on('click', function(e) {
+            e.stopPropagation();
+            console.log("Leaf clicked:", i);
             if (!$(this).hasClass("harvested")) {
                 harvestLeaf($(this));
             }
         });
+        
         $("#harvest-leaves").append(leaf);
     }
     
     // Show the container
     $("#harvesting").fadeIn();
+    console.log("Harvest UI displayed");
 }
 
 function harvestLeaf(leafElement) {
+    console.log("Harvesting leaf");
     leafElement.addClass("harvested");
     harvestedLeaves++;
     
@@ -161,8 +184,11 @@ function harvestLeaf(leafElement) {
     $("#harvest-progress-bar").css("width", harvestProgress + "%");
     $("#harvest-progress-value").text(Math.floor(harvestProgress) + "%");
     
+    console.log("Progress: " + harvestProgress + "%, Harvested: " + harvestedLeaves + "/" + totalLeaves);
+    
     // Check if harvesting is complete
     if (harvestedLeaves >= totalLeaves) {
+        console.log("Harvesting complete, sending to server");
         // Send completion to game
         setTimeout(function() {
             $.post('https://kingz-weed/harvestProgress', JSON.stringify({
@@ -172,3 +198,4 @@ function harvestLeaf(leafElement) {
         }, 500);
     }
 }
+

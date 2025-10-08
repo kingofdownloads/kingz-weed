@@ -5,7 +5,7 @@ local isProcessing = false
 RegisterCommand('processweed', function()
     QBCore.Functions.TriggerCallback('kingz-weed:server:getPlayerWeed', function(items)
         if #items == 0 then
-            QBCore.Functions.Notify('No Items', 'You don\'t have any weed to process', 'error')
+            QBCore.Functions.Notify('You don\'t have any weed to process', 'error')
             return
         end
         
@@ -42,10 +42,10 @@ end, false)
 RegisterCommand('checkweed', function()
     QBCore.Functions.TriggerCallback('kingz-weed:server:getPlayerWeed', function(items)
         if #items == 0 then
-            QBCore.Functions.Notify('No Weed', 'You don\'t have any weed in your inventory', 'error')
+            QBCore.Functions.Notify('You don\'t have any weed in your inventory', 'error')
         else
             for _, item in ipairs(items) do
-                QBCore.Functions.Notify('Found Weed', 'You have ' .. item.amount .. 'x ' .. item.label, 'success')
+                QBCore.Functions.Notify('You have ' .. item.amount .. 'x ' .. item.label, 'success')
             end
         end
     end)
@@ -129,14 +129,14 @@ function ProcessWeed(itemName, processType, progressText, duration)
                 -- Process the weed
                 TriggerServerEvent('kingz-weed:server:processWeed', itemName, processType)
                 
-                QBCore.Functions.Notify('Success', 'Processing complete', 'success')
+                QBCore.Functions.Notify('Processing complete', 'success')
             end, function() -- Cancel
                 ClearPedTasks(playerPed)
                 
-                QBCore.Functions.Notify('Canceled', 'Processing canceled', 'error')
+                QBCore.Functions.Notify('Processing canceled', 'error')
             end)
         else
-            QBCore.Functions.Notify('Missing Item', missingItem, 'error')
+            QBCore.Functions.Notify(missingItem, 'error')
         end
     end, itemName, processType)
 end
@@ -145,7 +145,7 @@ end
 function OpenProcessingMenu()
     QBCore.Functions.TriggerCallback('kingz-weed:server:getPlayerWeed', function(items)
         if #items == 0 then
-            QBCore.Functions.Notify('No Items', 'You don\'t have any weed to process', 'error')
+            QBCore.Functions.Notify('You don\'t have any weed to process', 'error')
             return
         end
         
